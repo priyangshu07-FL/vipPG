@@ -226,36 +226,6 @@ footer {
 .tab-btn { padding:8px 12px; border-radius:999px; background:transparent; border:1px solid rgba(0,0,0,0.05); cursor:pointer; font-weight:600; }
 .tab-btn.active { background:var(--accent); color:#fff; }
 
-/* Dark mode variables and toggle styles */
-:root {
-  --bg: #fbf8f3;
-  --card: #ffffff;
-  --text: #222222;
-  --muted: #6b6b6b;
-  --accent: #e6a500;
-  --glass: rgba(255,255,255,0.6);
-}
-[data-theme="dark"]{
-  --bg: #0f1113;
-  --card: #0f1315;
-  --text: #e9eef1;
-  --muted: #a8b0b6;
-  --accent: #f6c85a;
-  --glass: rgba(255,255,255,0.03);
-}
-body{background:var(--bg);color:var(--text);}
-.card, section, footer, header { background: var(--card); color: var(--text); }
-.small{color:var(--muted);}
-a { color: var(--accent); }
-/* Toggle styles */
-.theme-toggle {
-  display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border-radius:999px;background:linear-gradient(90deg,rgba(0,0,0,0.03),rgba(255,255,255,0.02));
-  border:1px solid rgba(0,0,0,0.04); cursor:pointer;
-}
-.theme-toggle .dot{width:18px;height:18px;border-radius:50%;background:var(--card);box-shadow:0 2px 6px rgba(0,0,0,0.08);display:inline-block}
-[data-theme="dark"] .theme-toggle{background:linear-gradient(90deg,rgba(255,255,255,0.02),rgba(0,0,0,0.12));border:1px solid rgba(255,255,255,0.04)}
-[data-theme="dark"] .theme-toggle .dot{background:#0b0f10}
-` 
 
 /* Map thumbnail overlay on PG card image */
 .card { position: relative; overflow: visible; }
@@ -306,7 +276,7 @@ a { color: var(--accent); }
 <header>
   <div class="wrap" style="display:flex;align-items:center">
     <div class="brand">
-      <div class="logo">CP</div>
+      <div class="logo">VIP</div>
       <div>
         <div style="font-weight:700">VIP PG</div>
         <div style="font-size:13px;color:var(--muted)">Warm. Clean. Secure.</div>
@@ -318,11 +288,7 @@ a { color: var(--accent); }
       <a href="#contact" class="cta">Book Now</a>
     </nav>
 <div style="margin-left:12px">
-  <button id="themeToggle" class="theme-toggle" aria-pressed="false" aria-label="Toggle color theme">
-    <span class="dot" aria-hidden="true"></span>
-    <span class="small" style="font-size:13px">Dark</span>
-  </button>
-</div>
+  </div>
 
 <div class="hamburger" onclick="toggleMenu()" style="margin-left:auto;display:none;cursor:pointer;">
   <div style="width:24px;height:3px;background:#333;margin:5px 0;border-radius:3px"></div>
@@ -422,7 +388,8 @@ a { color: var(--accent); }
     </div>
   </section>
 
-  <section id="amenities" class="grid-2">
+  <section id="amenities">
+
     <div class="amen">
       <h3>Amenities & Details</h3>
 
@@ -462,18 +429,23 @@ a { color: var(--accent); }
 
     </div>
 
-    <div class="amen">
-            <div class="medium">Step into a PG that doesn’t just give you a room, but gives you a feeling of home the moment you walk in — a warm, welcoming stay where comfort, safety, and good living come together effortlessly. From the clean, well-maintained rooms designed for peaceful rest after long college or office days, to wholesome, homely food that actually tastes good and feels nourishing, everything here is planned to make daily life smooth and stress-free. Security is taken seriously with round-the-clock monitoring, controlled access, and a safe environment that lets you relax without worry, day or night. Regular cleaning, hygienic washrooms, proper ventilation, and thoughtful amenities ensure that you never feel like you’re compromising on your lifestyle. Whether you’re studying late, returning tired from work, or just unwinding with friends, this PG offers a calm, cozy atmosphere where you can truly settle in. It’s not just about staying somewhere — it’s about feeling comfortable, cared for, and confident that you’re living in a place that understands what a good PG experience should actually feel like..</div>
-    </div>
+    
   </section>
 
 <section id="fullGallery" class="reveal">
   <h2>Gallery</h2>
 
+  <!-- Gallery Tabs -->
+  <div class="tabs" role="tablist">
+    <button class="tab-btn active" data-gal="rooms">🛏 Rooms</button>
+    <button class="tab-btn" data-gal="common">🛋 Common Areas</button>
+    <button class="tab-btn" data-gal="wash">🚿 Washrooms</button>
+  </div>
+
   <!-- ROOMS -->
-  <h3>Rooms</h3>
-  <div class="masonry-gallery">
-    <img loading="lazy" src="https://raw.githubusercontent.com/priyangshu07-FL/vipPG/c984147989f9cd4d85b046585ec8790e2aea2e42/Images_VIP_PG/Room_1.JPG" onclick="openLightbox(this.src)">
+  <div id="gal-rooms" class="gal-panel">
+    <div class="masonry-gallery">
+      <img loading="lazy" src="https://raw.githubusercontent.com/priyangshu07-FL/vipPG/c984147989f9cd4d85b046585ec8790e2aea2e42/Images_VIP_PG/Room_1.JPG" onclick="openLightbox(this.src)">
     <img loading="lazy" src="https://raw.githubusercontent.com/priyangshu07-FL/vipPG/c984147989f9cd4d85b046585ec8790e2aea2e42/Images_VIP_PG/Room_4.JPG" onclick="openLightbox(this.src)">
     <img loading="lazy" src="https://raw.githubusercontent.com/priyangshu07-FL/vipPG/c984147989f9cd4d85b046585ec8790e2aea2e42/Images_VIP_PG/Room_8.JPG" onclick="openLightbox(this.src)">
     <img loading="lazy" src="https://raw.githubusercontent.com/priyangshu07-FL/vipPG/c984147989f9cd4d85b046585ec8790e2aea2e42/Images_VIP_PG/Room_9.JPG" onclick="openLightbox(this.src)">
@@ -482,26 +454,29 @@ a { color: var(--accent); }
     <img loading="lazy" src="https://raw.githubusercontent.com/priyangshu07-FL/vipPG/c984147989f9cd4d85b046585ec8790e2aea2e42/Images_VIP_PG/Room_12.JPG" onclick="openLightbox(this.src)">
     <img loading="lazy" src="https://raw.githubusercontent.com/priyangshu07-FL/vipPG/c984147989f9cd4d85b046585ec8790e2aea2e42/Images_VIP_PG/Room_13.JPG" onclick="openLightbox(this.src)">
     <img loading="lazy" src="https://raw.githubusercontent.com/priyangshu07-FL/vipPG/c984147989f9cd4d85b046585ec8790e2aea2e42/Images_VIP_PG/Room_14.JPG" onclick="openLightbox(this.src)">
+    </div>
   </div>
 
   <!-- COMMON AREAS -->
-  <h3>Common Areas</h3>
-  <div class="masonry-gallery">
-    <img loading="lazy" src="https://raw.githubusercontent.com/priyangshu07-FL/vipPG/c984147989f9cd4d85b046585ec8790e2aea2e42/Images_VIP_PG/Room_common_hall_6.JPG" onclick="openLightbox(this.src)">
+  <div id="gal-common" class="gal-panel" style="display:none">
+    <div class="masonry-gallery">
+      <img loading="lazy" src="https://raw.githubusercontent.com/priyangshu07-FL/vipPG/c984147989f9cd4d85b046585ec8790e2aea2e42/Images_VIP_PG/Room_common_hall_6.JPG" onclick="openLightbox(this.src)">
     <img loading="lazy" src="https://raw.githubusercontent.com/priyangshu07-FL/vipPG/c984147989f9cd4d85b046585ec8790e2aea2e42/Images_VIP_PG/Room_common_hall_7.JPG" onclick="openLightbox(this.src)">
     <img loading="lazy" src="https://raw.githubusercontent.com/priyangshu07-FL/vipPG/c984147989f9cd4d85b046585ec8790e2aea2e42/Images_VIP_PG/Room_Kitchen_5.JPG" onclick="openLightbox(this.src)">
     <img loading="lazy" src="https://raw.githubusercontent.com/priyangshu07-FL/vipPG/c984147989f9cd4d85b046585ec8790e2aea2e42/Images_VIP_PG/Room_with_RO_3.JPG" onclick="openLightbox(this.src)">
     <img loading="lazy" src="https://raw.githubusercontent.com/priyangshu07-FL/vipPG/c984147989f9cd4d85b046585ec8790e2aea2e42/Images_VIP_PG/Room_with_locker_2.JPG" onclick="openLightbox(this.src)">
+    </div>
   </div>
 
   <!-- WASHROOMS -->
-  <h3>Washrooms</h3>
-  <div class="masonry-gallery">
-    <img loading="lazy" src="https://raw.githubusercontent.com/priyangshu07-FL/vipPG/c984147989f9cd4d85b046585ec8790e2aea2e42/Images_VIP_PG/Washroom_1.JPG" onclick="openLightbox(this.src)">
+  <div id="gal-wash" class="gal-panel" style="display:none">
+    <div class="masonry-gallery">
+      <img loading="lazy" src="https://raw.githubusercontent.com/priyangshu07-FL/vipPG/c984147989f9cd4d85b046585ec8790e2aea2e42/Images_VIP_PG/Washroom_1.JPG" onclick="openLightbox(this.src)">
     <img loading="lazy" src="https://raw.githubusercontent.com/priyangshu07-FL/vipPG/c984147989f9cd4d85b046585ec8790e2aea2e42/Images_VIP_PG/Washroom_2.JPG" onclick="openLightbox(this.src)">
     <img loading="lazy" src="https://raw.githubusercontent.com/priyangshu07-FL/vipPG/c984147989f9cd4d85b046585ec8790e2aea2e42/Images_VIP_PG/Washroom_3.JPG" onclick="openLightbox(this.src)">
     <img loading="lazy" src="https://raw.githubusercontent.com/priyangshu07-FL/vipPG/c984147989f9cd4d85b046585ec8790e2aea2e42/Images_VIP_PG/Washroom_4.JPG" onclick="openLightbox(this.src)">
     <img loading="lazy" src="https://raw.githubusercontent.com/priyangshu07-FL/vipPG/c984147989f9cd4d85b046585ec8790e2aea2e42/Images_VIP_PG/Washroom_5.JPG" onclick="openLightbox(this.src)">
+    </div>
   </div>
 </section>
 
@@ -675,36 +650,22 @@ document.querySelectorAll('.tab-btn').forEach(btn=>{
 </script>
 
 <script>
-(function(){
-  const btn = document.getElementById('themeToggle');
-  if(!btn) return;
-  const root = document.documentElement;
-  const LS_KEY = 'cozypg_theme';
-  function applyTheme(t){
-    if(t === 'dark'){
-      document.documentElement.setAttribute('data-theme','dark');
-      btn.setAttribute('aria-pressed','true');
-      btn.querySelector('.small').innerText = 'Dark';
-    } else {
-      document.documentElement.removeAttribute('data-theme');
-      btn.setAttribute('aria-pressed','false');
-      btn.querySelector('.small').innerText = 'Light';
-    }
-  }
-  // init from storage or system preference
-  const saved = localStorage.getItem(LS_KEY);
-  if(saved) applyTheme(saved);
-  else {
-    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-    applyTheme(prefersDark ? 'dark' : 'light');
-  }
-  btn.addEventListener('click', function(){
-    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-    const next = isDark ? 'light' : 'dark';
-    applyTheme(next);
-    localStorage.setItem(LS_KEY, next);
+document.querySelectorAll('[data-gal]').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    // remove active state from all gallery tabs
+    document.querySelectorAll('[data-gal]').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+
+    // hide all gallery panels
+    document.querySelectorAll('.gal-panel').forEach(p=>{
+      p.style.display = 'none';
+    });
+
+    // show selected panel
+    const target = document.getElementById('gal-' + btn.dataset.gal);
+    if(target) target.style.display = 'block';
   });
-})();
+});
 </script>
 
 </body>
